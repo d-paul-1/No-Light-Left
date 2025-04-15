@@ -3,7 +3,7 @@ using TMPro; // Use UnityEngine.UI if you're not using TextMeshPro
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float timeRemaining = 60f; // 60 seconds
+    public float timeRemaining = 600f; // 60 seconds
     public TextMeshProUGUI countdownText; // Link this in the Inspector
     private bool timerIsRunning = true;
 
@@ -33,7 +33,8 @@ public class CountdownTimer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        countdownText.text = string.Format("{0:09}:{1:00}", minutes, seconds);
+        //countdownText.GetComponent<TextMeshProUGUI>().color = Color.white;
     }
 
     void TimerEnded()

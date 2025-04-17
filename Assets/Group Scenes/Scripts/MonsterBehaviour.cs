@@ -21,7 +21,7 @@ public class MonsterBehavior : MonoBehaviour
         agent.isStopped = true;
 
         // Start the coroutine to unfreeze the monster after 30 seconds
-        StartCoroutine(UnfreezeAfterDelay(30f));
+        StartCoroutine(UnfreezeAfterDelay(60f));
     }
 
     void Update()

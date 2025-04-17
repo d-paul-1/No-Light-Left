@@ -79282,6 +79282,7 @@ GameObject:
   - component: {fileID: 1888728119}
   - component: {fileID: 1888728121}
   - component: {fileID: 1888728120}
+  - component: {fileID: 1888728122}
   m_Layer: 0
   m_Name: Point light (5)
   m_TagString: Untagged
@@ -79392,6 +79393,23 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1888728122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888728118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0723a6f848c2b470ca7da83f8ec30661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointLight: {fileID: 0}
+  minIntensity: 0.5
+  maxIntensity: 2
+  fadeSpeed: 10
+  flickerSpeed: 0.5
 --- !u!4 &1890303968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425827515834252, guid: 8eb802985616d134da97830b682ac851, type: 3}
@@ -87415,6 +87433,7 @@ GameObject:
   - component: {fileID: 2084683551}
   - component: {fileID: 2084683553}
   - component: {fileID: 2084683552}
+  - component: {fileID: 2084683554}
   m_Layer: 0
   m_Name: Point light (6)
   m_TagString: Untagged
@@ -87525,6 +87544,23 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &2084683554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084683550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0723a6f848c2b470ca7da83f8ec30661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointLight: {fileID: 0}
+  minIntensity: 0.5
+  maxIntensity: 2
+  fadeSpeed: 10
+  flickerSpeed: 0.5
 --- !u!1 &2088322212
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public class CountdownTimerTMP : MonoBehaviour
 
     public TextMeshProUGUI timerText;
     public GameObject gameOverPanel;
-    public TextMeshProUGUI gameOverText;
 
     private bool gameEnded = false;
 
@@ -44,6 +43,5 @@ public class CountdownTimerTMP : MonoBehaviour
     {
         gameEnded = true;
         gameOverPanel.SetActive(true);
-        gameOverText.text = "GAME OVER";
     }
 }

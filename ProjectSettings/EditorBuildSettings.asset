@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/XRI_Examples/Scenes/XRI_Examples_Main.unity
     guid: ba755f5a181505a4799b21685d4c7576
-  - enabled: 1
+  - enabled: 0
     path: Assets/BK_AlchemistHouse/Group Scenes/Dev.unity
     guid: ac8763d7e171542d5a2ee2cff1a01bdc
   m_configObjects:

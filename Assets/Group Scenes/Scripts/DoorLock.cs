@@ -13,6 +13,12 @@ public class DoorUnlockHinge : MonoBehaviour
 
     private bool isUnlocked = false;
 
+    void Start()
+    {
+        isUnlocked = false;
+        LockDoor();
+    }
+
     void OnEnable()
     {
         keySocket.selectEntered.AddListener(OnKeyInserted);
@@ -50,8 +56,8 @@ public class DoorUnlockHinge : MonoBehaviour
         if (doorHinge != null)
         {
             JointLimits limits = doorHinge.limits;
-            limits.min = -90f;
-            limits.max = 90f;
+            limits.min = -150f;
+            limits.max = 150f;
             doorHinge.limits = limits;
             doorHinge.useLimits = true;
             doorHinge.useSpring = false;

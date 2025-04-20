@@ -15,7 +15,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateHealthBar();
-
     }
 
     void Update()
@@ -61,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
         isTakingDamage = false;
-        //buttons.SetActive(true);
+        buttons.SetActive(true);
 
 
         if (buttons != null)

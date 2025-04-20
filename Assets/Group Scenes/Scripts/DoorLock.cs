@@ -46,8 +46,8 @@ public class DoorUnlockHinge : MonoBehaviour
         if (args.interactableObject.transform.CompareTag(keyTag) && unlockOnInsert == false)
         {
             Debug.Log("Key removed. Door locked.");
-            isUnlocked = false;
-            LockDoor();
+            //isUnlocked = false;
+            //LockDoor();
         }
     }
 

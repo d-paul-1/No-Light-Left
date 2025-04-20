@@ -37,6 +37,8 @@ public class DualCountdownTimer_TMP : MonoBehaviour
                 oneMinuteActive = false;
             }
             UpdateTimerText(oneMinuteTimerText, oneMinuteTimer);
+        } else{
+            oneMinuteTimerText.text = "Monster is Active";
         }
     }
 

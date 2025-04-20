@@ -1,47 +1,53 @@
 using UnityEngine;
 using TMPro;
+using System;
 
-public class CountdownTimerTMP : MonoBehaviour
+public class DualCountdownTimer_TMP : MonoBehaviour
 {
-    public float totalTime = 600f; // 10 minutes
-    private float timeLeft;
+    public TMP_Text tenMinuteTimerText;  // TMP Text for 10-minute countdown
+    public TMP_Text oneMinuteTimerText;  // TMP Text for 1-minute countdown
 
-    public TextMeshProUGUI timerText;
-    public GameObject gameOverPanel;
+    private float tenMinuteTimer = 600f; // 10 minutes in seconds
+    private float oneMinuteTimer = 60f;  // 1 minute in seconds
 
-    private bool gameEnded = false;
-
-    void Start()
-    {
-        timeLeft = totalTime;
-        gameOverPanel.SetActive(false); // Hide Game Over at start
-    }
+    private bool tenMinuteActive = true;
+    private bool oneMinuteActive = true;
 
     void Update()
     {
-        if (gameEnded) return;
-
-        timeLeft -= Time.deltaTime;
-        timeLeft = Mathf.Max(timeLeft, 0f);
-
-        UpdateTimerDisplay();
-
-        if (timeLeft <= 0f && !gameEnded)
+        // 10-minute timer
+        if (tenMinuteActive && tenMinuteTimer > 0f)
         {
-            EndGame();
+            tenMinuteTimer -= Time.deltaTime;
+            if (tenMinuteTimer <= 0f)
+            {
+                tenMinuteTimer = 0f;
+                tenMinuteActive = false;
+            }
+            UpdateTimerText(tenMinuteTimerText, tenMinuteTimer);
+        }
+
+        // 1-minute timer
+        if (oneMinuteActive && oneMinuteTimer > 0f)
+        {
+            oneMinuteTimer -= Time.deltaTime;
+            if (oneMinuteTimer <= 0f)
+            {
+                oneMinuteTimer = 0f;
+                oneMinuteActive = false;
+            }
+            UpdateTimerText(oneMinuteTimerText, oneMinuteTimer);
         }
     }
 
-    void UpdateTimerDisplay()
+    void UpdateTimerText(TMP_Text textComponent, float timeInSeconds)
     {
-        int minutes = Mathf.FloorToInt(timeLeft / 60);
-        int seconds = Mathf.FloorToInt(timeLeft % 60);
-        timerText.text = $"{minutes:00}:{seconds:00}";
-    }
+        TimeSpan time = TimeSpan.FromSeconds(timeInSeconds);
+        string formattedTime = string.Format("{0:D2}:{1:D2}", time.Minutes, time.Seconds);
 
-    void EndGame()
-    {
-        gameEnded = true;
-        gameOverPanel.SetActive(true);
+        if (textComponent != null)
+        {
+            textComponent.text = formattedTime;
+        }
     }
 }

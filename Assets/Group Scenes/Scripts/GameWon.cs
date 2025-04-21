@@ -21,7 +21,6 @@ public class GameWon : MonoBehaviour
             objectToSpawn.SetActive(true);
             Vector3 spawnPosition = mainCam.transform.position + mainCam.transform.forward * spawnDistance;
             Quaternion spawnRotation = Quaternion.LookRotation(-mainCam.transform.forward); // faces the player
-            Instantiate(objectToSpawn, spawnPosition, spawnRotation);
             hasSpawned = true;
         }
     }

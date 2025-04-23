@@ -8,6 +8,7 @@ public class DualCountdownTimer_TMP : MonoBehaviour
     public TMP_Text oneMinuteTimerText;  // TMP Text for 1-minute countdown
 
     private float tenMinuteTimer = 600f; // 10 minutes in seconds
+    public GameObject GameOverButton;
     private float oneMinuteTimer = 60f;  // 1 minute in seconds
 
     private bool tenMinuteActive = true;
@@ -23,6 +24,7 @@ public class DualCountdownTimer_TMP : MonoBehaviour
             {
                 tenMinuteTimer = 0f;
                 tenMinuteActive = false;
+                GameOverButton.SetActive(true);
             }
             UpdateTimerText(tenMinuteTimerText, tenMinuteTimer);
         }

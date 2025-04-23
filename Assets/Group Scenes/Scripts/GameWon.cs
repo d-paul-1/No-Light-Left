@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class TriggerActivator : MonoBehaviour
 {
-    public GameObject objectToActivate; // The object to activate
-
+    public GameObject GameWonButton; // The object to activate
+    public GameObject Monster;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (objectToActivate != null)
+            if (GameWonButton != null && Monster != null)
             {
-                objectToActivate.SetActive(true);
+                GameWonButton.SetActive(true);
+                Monster.SetActive(false);
             }
             else
             {

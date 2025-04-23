@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
     private bool isTakingDamage = false;
     private bool isDead = false;
+    public GameObject Monster;
+    public GameObject flashingImage;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
          if (currentHealth <= 0)
             {
                 HandleDeath();
+                Monster.SetActive(false);
             }
     }
 
@@ -66,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
         if (buttons != null)
         {
             buttons.SetActive(true);
+            flashingImage.SetActive(false);
         }
 
         // Optional: Disable player input, movement, or play death animation here

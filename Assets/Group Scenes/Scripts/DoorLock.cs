@@ -6,12 +6,11 @@ public class DoorUnlockHinge : MonoBehaviour
     [Header("Hinge Settings")]
     public HingeJoint doorHinge;
     public bool unlockOnInsert = true;
-
     [Header("Socket Settings")]
     public UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor keySocket;
     public string keyTag = "Key";
-
     private bool isUnlocked = false;
+
 
     void Start()
     {
@@ -74,6 +73,7 @@ public class DoorUnlockHinge : MonoBehaviour
             doorHinge.limits = limits;
             doorHinge.useLimits = true;
             doorHinge.useSpring = false;
+            
         }
     }
 }

@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1674900535}
   maxHealth: 100
-  damageRate: 50
+  damageRate: 10
   buttons: {fileID: 1635393161}
   Monster: {fileID: 313032468}
   flashingImage: {fileID: 229909271}

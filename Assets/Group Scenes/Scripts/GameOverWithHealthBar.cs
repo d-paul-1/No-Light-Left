@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // Edit this condition for monster attacking
         {
             isTakingDamage = true;
         }
@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // Maybe this one too?
         {
             isTakingDamage = false;
         }

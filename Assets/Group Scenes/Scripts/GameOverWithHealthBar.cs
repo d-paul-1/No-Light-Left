@@ -5,13 +5,14 @@ public class PlayerHealth : MonoBehaviour
 {
     public Slider healthBar;                  // UI Slider for health
     public float maxHealth = 100f;
-    public float damageRate = 20f;
+    public float damageRate = 2f;
     public GameObject buttons;
     private float currentHealth;
     private bool isTakingDamage = false;
     private bool isDead = false;
     public GameObject Monster;
     public GameObject flashingImage;
+    public GameObject locomotion;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isTakingDamage)
         {
+            Debug.Log("Taking damage"+currentHealth);
             currentHealth -= damageRate * Time.deltaTime;
             currentHealth = Mathf.Max(currentHealth, 0);
             UpdateHealthBar();
@@ -32,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 HandleDeath();
                 Monster.SetActive(false);
+                locomotion.SetActive(false);
             }
     }
 
@@ -56,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.value = currentHealth / maxHealth;
+            Debug.Log("Updating Health Bar: " + (currentHealth / maxHealth));
         }
     }
 
@@ -64,7 +68,6 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         isTakingDamage = false;
         buttons.SetActive(true);
-
 
         if (buttons != null)
         {

@@ -1449,12 +1449,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8953bfd1018076c49a2c46ead3046c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1674900535}
   maxHealth: 100
-  damageRate: 10
+  damageRate: 50
   buttons: {fileID: 1635393161}
   Monster: {fileID: 313032468}
   flashingImage: {fileID: 229909271}
+  locomotion: {fileID: 1810082585}
 --- !u!114 &313032477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1468,8 +1469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageObject: {fileID: 229909271}
-  flashSpeed: 10
-  maxAlpha: 0.332
+  flashSpeed: 20
+  maxAlpha: 0.156
 --- !u!4 &337039575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3723574535988696773, guid: 49a3e30cf60503e4d9ba54abe3ff41a5, type: 3}
@@ -1771,7 +1772,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -3820,17 +3821,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674900532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8953bfd1018076c49a2c46ead3046c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1674900535}
   maxHealth: 100
-  damageRate: 20
+  damageRate: 50
   buttons: {fileID: 1635393161}
   Monster: {fileID: 313032468}
   flashingImage: {fileID: 229909271}
+  locomotion: {fileID: 1810082585}
 --- !u!1001 &1676875699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4290,6 +4292,11 @@ RectTransform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3442684524014757889, guid: 5e7f8a683a599aa409394ce92776d8ea, type: 3}
   m_PrefabInstance: {fileID: 2843670577957709402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1810082585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5167925059111895691, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 513705899}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1885665522
 GameObject:

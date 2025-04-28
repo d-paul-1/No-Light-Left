@@ -6,64 +6,99 @@ public class MonsterBehavior : MonoBehaviour
 {
     private Animator animator;
     private NavMeshAgent agent;
-    private bool isFrozen = true; // Start frozen
+
     public Transform player;
-    public float detectionRadius = 10f;
     public float attackRange = 2f;
+    public float detectionRadius = 10f;
+    public float explorationRadius = 20f;
+    public float freezeDelay = 5f; // How long monster is frozen at start
+
+    private bool isFrozen = true;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
-        // Disable the animator and stop the agent's movement for the first 30 seconds
         animator.enabled = false;
         agent.isStopped = true;
 
-        // Start the coroutine to unfreeze the monster after 30 seconds
-        StartCoroutine(UnfreezeAfterDelay(60f));
+        StartCoroutine(UnfreezeAfterDelay(freezeDelay));
     }
 
     void Update()
     {
+        if (!agent.isOnNavMesh) return;
+
         if (isFrozen)
         {
-            // Do nothing (the monster is frozen and can't move or animate)
+            agent.isStopped = true;
+            animator.speed = 0f;
             return;
         }
+
+        agent.isStopped = false;
+        animator.speed = 1f;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= attackRange)
         {
-            animator.SetTrigger("attack");
-            agent.isStopped = true;
+            AttackPlayer();
         }
         else if (distanceToPlayer <= detectionRadius)
         {
-            animator.SetBool("run", true);
-            agent.isStopped = false;
-            agent.SetDestination(player.position);
+            ChasePlayer();
         }
         else
         {
-            animator.SetBool("run", false);
+            WanderRandomly();
+        }
+    }
+
+    private void AttackPlayer()
+    {
+        agent.isStopped = true; // Stop moving when attacking
+        animator.SetTrigger("attack");
+    }
+
+    private void ChasePlayer()
+    {
+        animator.SetBool("run", true);
+        agent.SetDestination(player.position);
+    }
+
+    private void WanderRandomly()
+    {
+        animator.SetBool("run", false);
+
+        if (!agent.hasPath || agent.remainingDistance < 0.5f)
+        {
+            Vector3 randomDirection = Random.insideUnitSphere * explorationRadius;
+            randomDirection += transform.position;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomDirection, out hit, explorationRadius, NavMesh.AllAreas))
+            {
+                agent.SetDestination(hit.position);
+            }
         }
     }
 
     IEnumerator UnfreezeAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(delay);  // Wait for the specified time (30 seconds)
-        
-        // After the delay, reactivate the animator and allow the monster to move
+        yield return new WaitForSeconds(delay);
         animator.enabled = true;
-        isFrozen = false;  // The monster is no longer frozen
+        isFrozen = false;
     }
 
     public void SetFrozen(bool frozen)
     {
         isFrozen = frozen;
-        animator.enabled = !frozen;
-        agent.isStopped = frozen;
+    }
+
+    public bool IsFrozen()
+    {
+        return isFrozen;
     }
 }

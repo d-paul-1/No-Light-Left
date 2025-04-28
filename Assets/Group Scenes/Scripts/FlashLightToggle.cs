@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.XR;
+using System.Collections.Generic;
 
-public class FlashlightToggle : MonoBehaviour
+public class FlashlightAlwaysOn : MonoBehaviour
 {
     private Light flashlight;
+    private bool flashlightOn = true;
 
-    void Start()
+    private InputDevice rightHandDevice;
+    public Transform monsterTransform; // Reference to the monster's Transform
+    public float freezeAngleThreshold = 45f; // Angle threshold for freezing the monster
+
+    private void Start()
     {
         flashlight = GetComponent<Light>();
 
@@ -14,16 +21,75 @@ public class FlashlightToggle : MonoBehaviour
         }
         else
         {
-            flashlight.enabled = false; // start OFF
+            flashlight.enabled = true; // Always on at start
+        }
+
+        // Try to find the right-hand controller
+        TryInitializeRightHand();
+    }
+
+    private void Update()
+    {
+        if (!rightHandDevice.isValid)
+        {
+            TryInitializeRightHand(); // Retry if device is lost
+        }
+
+        // Check for B button press to toggle the flashlight
+        if (rightHandDevice.TryGetFeatureValue(CommonUsages.secondaryButton, out bool isPressed) && isPressed)
+        {
+            ToggleFlashlight();
+        }
+
+        // Freeze monster if flashlight is pointing at it
+        if (flashlightOn && IsFlashlightPointingAtMonster())
+        {
+            FreezeMonster(true);
+        }
+        else
+        {
+            FreezeMonster(false);
         }
     }
 
-    void Update()
+    private void TryInitializeRightHand()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        var rightHandDevices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(XRNode.RightHand, rightHandDevices);
+
+        if (rightHandDevices.Count > 0)
         {
-            flashlight.enabled = !flashlight.enabled;
+            rightHandDevice = rightHandDevices[0];
+        }
+    }
+
+    private void ToggleFlashlight()
+    {
+        flashlightOn = !flashlightOn;
+        flashlight.enabled = flashlightOn;
+    }
+
+    private bool IsFlashlightPointingAtMonster()
+    {
+        // Calculate the direction of the flashlight
+        Vector3 flashlightDirection = transform.forward;
+
+        // Vector from flashlight to the monster
+        Vector3 toMonster = monsterTransform.position - transform.position;
+
+        // Calculate the angle between the flashlight direction and the monster
+        float angle = Vector3.Angle(flashlightDirection, toMonster);
+
+        return angle <= freezeAngleThreshold;
+    }
+
+    private void FreezeMonster(bool freeze)
+    {
+        // Assuming you have a reference to the MonsterBehavior script
+        MonsterBehavior monsterBehavior = monsterTransform.GetComponent<MonsterBehavior>();
+        if (monsterBehavior != null)
+        {
+            monsterBehavior.SetFrozen(freeze);
         }
     }
 }
-

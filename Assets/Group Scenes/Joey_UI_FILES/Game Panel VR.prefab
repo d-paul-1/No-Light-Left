@@ -233,7 +233,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1223034264221020881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +535,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tenMinuteTimerText: {fileID: 8957346278956082382}
   oneMinuteTimerText: {fileID: 1977388374563816227}
+  tenMinuteTimer: 10
   GameOverButton: {fileID: 0}
+  oneMinuteTimer: 60
 --- !u!1 &4398851898580444232
 GameObject:
   m_ObjectHideFlags: 0

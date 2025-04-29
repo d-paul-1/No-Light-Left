@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Taking damage"+currentHealth);
             currentHealth -= damageRate * Time.deltaTime;
             currentHealth = Mathf.Max(currentHealth, 0);
+            Debug.Log("Current Health: " + currentHealth);
             UpdateHealthBar();
         }
 
@@ -58,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthBar != null)
         {
+            Debug.Log("HEalth BAr works");
             healthBar.value = currentHealth / maxHealth;
             Debug.Log("Updating Health Bar: " + (currentHealth / maxHealth));
         }

@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/BK_AlchemistHouse/Group Scenes/Dev.unity
     guid: ac8763d7e171542d5a2ee2cff1a01bdc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Group Scenes/Dev.unity
     guid: ffb789653a3d040b1b7e1a89d7aeaba2
   - enabled: 0
     path: Assets/Group Scenes/HomeScene.unity
     guid: d2582edf8e0674ff8acdaf9baf353f43
-  - enabled: 1
+  - enabled: 0
     path: Assets/Group Scenes/Joey.unity
     guid: ea8474e21103dec4ba82a5e953027586
   m_configObjects:

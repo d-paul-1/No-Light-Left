@@ -886,6 +886,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2635489925316602888, guid: 842e6e64d99c9274bb267771f48d772a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5095504085112318519, guid: 842e6e64d99c9274bb267771f48d772a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2690,6 +2694,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2060471968}
+    - target: {fileID: 4491215503484059758, guid: 16f347011a3ea5a43a3f050d31e07e48, type: 3}
+      propertyPath: tenMinuteTimer
+      value: 105.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4737419216098508733, guid: 16f347011a3ea5a43a3f050d31e07e48, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -2790,7 +2798,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2060471968}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3362715773049863611, guid: 16f347011a3ea5a43a3f050d31e07e48, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

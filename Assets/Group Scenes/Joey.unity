@@ -2734,6 +2734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Joey's XR Origin (XR Rig)
       objectReference: {fileID: 0}
+    - target: {fileID: 6826386577223593530, guid: 16f347011a3ea5a43a3f050d31e07e48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7587724997410600519, guid: 16f347011a3ea5a43a3f050d31e07e48, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2878,21 +2882,25 @@ PrefabInstance:
       propertyPath: Monster
       value: 
       objectReference: {fileID: 313032468}
+    - target: {fileID: 1812107631933429504, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
+      propertyPath: tenMinuteTimer
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 2158128864939933523, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2060471968}
     - target: {fileID: 3921031719320562253, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3921031719320562253, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3921031719320562253, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4161848251018543921, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2940,11 +2948,11 @@ PrefabInstance:
       objectReference: {fileID: 2060471968}
     - target: {fileID: 5661041269003507877, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5661041269003507877, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5992504768022678672, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2953,6 +2961,10 @@ PrefabInstance:
     - target: {fileID: 7691809024215335129, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
       propertyPath: m_Name
       value: Joey's XR Origin (XR Rig) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691809024215335129, guid: bf3ef0b9ac219490696f886a709cc4ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

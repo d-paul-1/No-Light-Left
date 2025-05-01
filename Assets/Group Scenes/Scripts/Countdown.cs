@@ -14,6 +14,9 @@ public class DualCountdownTimer_TMP : MonoBehaviour
     private bool tenMinuteActive = true;
     private bool oneMinuteActive = true;
 
+    public GameObject monster;
+    public GameObject locomotion;
+
     void Update()
     {
         // 10-minute timer
@@ -25,6 +28,8 @@ public class DualCountdownTimer_TMP : MonoBehaviour
                 tenMinuteTimer = 0f;
                 tenMinuteActive = false;
                 GameOverButton.SetActive(true);
+                monster.SetActive(false);
+                locomotion.SetActive(false);
             }
             UpdateTimerText(tenMinuteTimerText, tenMinuteTimer);
         }

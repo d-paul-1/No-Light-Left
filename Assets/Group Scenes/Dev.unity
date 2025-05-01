@@ -62499,7 +62499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 26061594}
   maxHealth: 100
-  damageRate: 20
+  damageRate: 21
   buttons: {fileID: 737947940}
   Monster: {fileID: 1329076336}
   flashingImage: {fileID: 143110995}

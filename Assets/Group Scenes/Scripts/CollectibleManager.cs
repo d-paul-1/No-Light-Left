@@ -9,6 +9,10 @@ public class CollectibleManager : MonoBehaviour
     public GameObject rewardPrefab; // Assign in Inspector
     public float spawnDistance = 1.5f; // Distance in front of camera
 
+    public void start(){
+        rewardPrefab.SetActive(false);
+    }
+    
     void Awake()
     {
         if (Instance == null)

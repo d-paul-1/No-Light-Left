@@ -11,9 +11,10 @@ public class MonsterBehavior : MonoBehaviour
     public float attackRange = 2f;
     public float detectionRadius = 10f;
     public float explorationRadius = 20f;
-    public float freezeDelay = 5f; // How long monster is frozen at start
+    public float freezeDelay = 30f; // How long monster is frozen at start
 
     private bool isFrozen = true;
+    private bool allowExternalUnfreeze = false; // Block external unfreezing until timer ends
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class MonsterBehavior : MonoBehaviour
         animator.enabled = false;
         agent.isStopped = true;
 
+        Debug.Log("Monster initialized. Freezing for " + freezeDelay + " seconds.");
         StartCoroutine(UnfreezeAfterDelay(freezeDelay));
     }
 
@@ -34,6 +36,7 @@ public class MonsterBehavior : MonoBehaviour
         {
             agent.isStopped = true;
             animator.speed = 0f;
+            Debug.Log("Monster is frozen. Not moving.");
             return;
         }
 
@@ -44,14 +47,17 @@ public class MonsterBehavior : MonoBehaviour
 
         if (distanceToPlayer <= attackRange)
         {
+            Debug.Log("Monster is attacking player.");
             AttackPlayer();
         }
         else if (distanceToPlayer <= detectionRadius)
         {
+            Debug.Log("Monster is chasing player.");
             ChasePlayer();
         }
         else
         {
+            Debug.Log("Monster is wandering randomly.");
             WanderRandomly();
         }
     }
@@ -81,6 +87,7 @@ public class MonsterBehavior : MonoBehaviour
             if (NavMesh.SamplePosition(randomDirection, out hit, explorationRadius, NavMesh.AllAreas))
             {
                 agent.SetDestination(hit.position);
+                Debug.Log("Monster set new wander destination: " + hit.position);
             }
         }
     }
@@ -90,11 +97,20 @@ public class MonsterBehavior : MonoBehaviour
         yield return new WaitForSeconds(delay);
         animator.enabled = true;
         isFrozen = false;
+        allowExternalUnfreeze = true;
+        Debug.Log("Monster unfrozen. Starting behavior.");
     }
 
     public void SetFrozen(bool frozen)
     {
+        if (!allowExternalUnfreeze && !frozen)
+        {
+            Debug.Log("External unfreeze blocked — still within initial freeze delay.");
+            return;
+        }
+
         isFrozen = frozen;
+        Debug.Log("SetFrozen called. Frozen: " + frozen);
     }
 
     public bool IsFrozen()

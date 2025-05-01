@@ -9,7 +9,8 @@ public class FlashlightAlwaysOn : MonoBehaviour
 
     private InputDevice rightHandDevice;
     public Transform monsterTransform; // Reference to the monster's Transform
-    public float freezeAngleThreshold = 45f; // Angle threshold for freezing the monster
+    public float freezeAngleThreshold = 45f;       // Angle threshold for freezing the monster
+    public float freezeDistanceThreshold = 10f;    // Max distance to freeze the monster
 
     private void Start()
     {
@@ -41,7 +42,7 @@ public class FlashlightAlwaysOn : MonoBehaviour
             ToggleFlashlight();
         }
 
-        // Freeze monster if flashlight is pointing at it
+        // Freeze monster if flashlight is pointing at it and within distance
         if (flashlightOn && IsFlashlightPointingAtMonster())
         {
             FreezeMonster(true);
@@ -71,21 +72,17 @@ public class FlashlightAlwaysOn : MonoBehaviour
 
     private bool IsFlashlightPointingAtMonster()
     {
-        // Calculate the direction of the flashlight
         Vector3 flashlightDirection = transform.forward;
-
-        // Vector from flashlight to the monster
         Vector3 toMonster = monsterTransform.position - transform.position;
 
-        // Calculate the angle between the flashlight direction and the monster
         float angle = Vector3.Angle(flashlightDirection, toMonster);
+        float distance = toMonster.magnitude;
 
-        return angle <= freezeAngleThreshold;
+        return angle <= freezeAngleThreshold && distance <= freezeDistanceThreshold;
     }
 
     private void FreezeMonster(bool freeze)
     {
-        // Assuming you have a reference to the MonsterBehavior script
         MonsterBehavior monsterBehavior = monsterTransform.GetComponent<MonsterBehavior>();
         if (monsterBehavior != null)
         {

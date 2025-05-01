@@ -907,7 +907,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tenMinuteTimerText: {fileID: 8465778660523776184}
   oneMinuteTimerText: {fileID: 4033239797683313263}
+  tenMinuteTimer: 10
   GameOverButton: {fileID: 156065689122264201}
+  oneMinuteTimer: 60
 --- !u!1 &2575306524592528346
 GameObject:
   m_ObjectHideFlags: 0

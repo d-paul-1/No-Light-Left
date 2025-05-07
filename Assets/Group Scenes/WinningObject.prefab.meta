@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2c70f4b9ecc3a814fb862a4f12fa106e
-DefaultImporter:
+guid: b057c80f6e2864ca7ab2bcf477a4dd8a
+PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 56989
   packageName: Island Assets
   packageVersion: 1.0.1
-  assetPath: Assets/Island/Standard/Island_2019.3.15_Standard.unitypackage
+  assetPath: Assets/Island/URP/Island_2019.3.15_URP.unitypackage
   uploadId: 375250

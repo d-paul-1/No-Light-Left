@@ -7,15 +7,12 @@ public class DualCountdownTimer_TMP : MonoBehaviour
     public TMP_Text tenMinuteTimerText;  // TMP Text for 10-minute countdown
     public TMP_Text oneMinuteTimerText;  // TMP Text for 1-minute countdown
 
-    public float tenMinuteTimer = 10f; // 10 minutes in seconds
+    public float tenMinuteTimer = 600f; // 10 minutes in seconds (600 seconds)
     public GameObject GameOverButton;
     public float oneMinuteTimer = 60f;  // 1 minute in seconds
 
-    private bool tenMinuteActive = true;
-    private bool oneMinuteActive = true;
-
-    public GameObject monster;
-    public GameObject locomotion;
+    private bool tenMinuteActive = false;
+    private bool oneMinuteActive = false;
 
     void Update()
     {
@@ -28,8 +25,6 @@ public class DualCountdownTimer_TMP : MonoBehaviour
                 tenMinuteTimer = 0f;
                 tenMinuteActive = false;
                 GameOverButton.SetActive(true);
-                monster.SetActive(false);
-                locomotion.SetActive(false);
             }
             UpdateTimerText(tenMinuteTimerText, tenMinuteTimer);
         }
@@ -44,9 +39,20 @@ public class DualCountdownTimer_TMP : MonoBehaviour
                 oneMinuteActive = false;
             }
             UpdateTimerText(oneMinuteTimerText, oneMinuteTimer);
-        } else{
+        } 
+        else
+        {
             oneMinuteTimerText.text = "Monster is Active";
         }
+    }
+
+    // Method to start the countdowns when teleport happens
+    public void StartCountdown()
+    {
+        tenMinuteActive = true;
+        oneMinuteActive = true;
+        GameOverButton.SetActive(false);  // Hide the game over button at the start
+        Debug.Log("Countdown started!");
     }
 
     void UpdateTimerText(TMP_Text textComponent, float timeInSeconds)

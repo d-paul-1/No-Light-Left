@@ -11,7 +11,7 @@ public class MonsterBehavior : MonoBehaviour
     public float attackRange = 2f;
     public float detectionRadius = 10f;
     public float explorationRadius = 20f;
-    public float freezeDelay = 30f; // How long monster is frozen at start
+    public float freezeDelay = 30f; // How long monster is frozen after teleportation
 
     private bool isFrozen = true;
     private bool allowExternalUnfreeze = false; // Block external unfreezing until timer ends
@@ -24,8 +24,7 @@ public class MonsterBehavior : MonoBehaviour
         animator.enabled = false;
         agent.isStopped = true;
 
-        Debug.Log("Monster initialized. Freezing for " + freezeDelay + " seconds.");
-        StartCoroutine(UnfreezeAfterDelay(freezeDelay));
+        Debug.Log("Monster initialized, waiting for teleport to start freeze.");
     }
 
     void Update()
@@ -90,6 +89,13 @@ public class MonsterBehavior : MonoBehaviour
                 Debug.Log("Monster set new wander destination: " + hit.position);
             }
         }
+    }
+
+    // This coroutine will start when teleportation happens, starting the freeze delay
+    public void StartFreezeDelay()
+    {
+        Debug.Log("Freeze delay started.");
+        StartCoroutine(UnfreezeAfterDelay(freezeDelay));
     }
 
     IEnumerator UnfreezeAfterDelay(float delay)

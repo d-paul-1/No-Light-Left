@@ -1,5 +1,11 @@
 # No Light Left
 
+## Watch the Gameplay Video
+
+[![Watch the video]()](https://youtu.be/SN5INwbPxRk)
+
+
+
 ## 1. Introduction
 
 **No Light Left** is a horror escape game where the player must navigate a haunted mansion, avoid a lurking monster, and collect five scattered dolls. Once all dolls are collected, a key is granted that unlocks the door on the top floor—allowing the player to escape and complete the objective.

@@ -2,6 +2,8 @@
 
 ## Watch the Gameplay Video
 
+Click on the thumbnail below to watch the gameplay video:
+
 [![Watch the video](https://github.com/d-paul-1/No-Light-Left/blob/main/Assets/thumbnail.png)](https://youtu.be/SN5INwbPxRk)
 
 

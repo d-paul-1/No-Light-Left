@@ -6,7 +6,7 @@ public class TriggerActivator : MonoBehaviour
     public GameObject GameWonButton;
     public GameObject Monster;
     public AudioSource victoryAudio;
-    public float audioDelay = 1f; // Delay before playing the audio
+    public float audioDelay = 0f; // Delay before playing the audio
 
     private void OnTriggerEnter(Collider other)
     {

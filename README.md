@@ -2,7 +2,7 @@
 
 ## Watch the Gameplay Video
 
-[![Watch the video]()](https://youtu.be/SN5INwbPxRk)
+[![Watch the video](https://github.com/d-paul-1/No-Light-Left/blob/main/Assets/thumbnail.png)](https://youtu.be/SN5INwbPxRk)
 
 
 
